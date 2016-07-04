@@ -1,0 +1,14 @@
+FROM python:2.7.8
+MAINTAINER Sakeven Jiang <sakeven.jiang@daocloud.io>
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY . /usr/src/app
+
+RUN pip install -r requirements.txt
+RUN pyinstaller --onefile -y application.py  && \
+    mv dist/application /usr/bin/application && rm -r *
+
+EXPOSE 3000
+
+CMD [ "application"]

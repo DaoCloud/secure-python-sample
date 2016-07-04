@@ -1,0 +1,8 @@
+FROM ubuntu:14.04
+MAINTAINER Sakeven Jiang <sakeven.jiang@daocloud.io>
+
+COPY usr/bin/application /usr/bin/application
+
+EXPOSE 3000
+
+CMD ["application"]
